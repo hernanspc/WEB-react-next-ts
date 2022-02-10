@@ -2,8 +2,17 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
+import Stack from "@mui/material/Stack";
+import Button from "@mui/material/Button";
+import { useRouter } from "next/router";
 
 const Home: NextPage = () => {
+  const router = useRouter();
+
+  const handleClick = () => {
+    router.push("/Home");
+  };
+
   return (
     <div className={styles.container}>
       <Head>
@@ -14,6 +23,11 @@ const Home: NextPage = () => {
 
       <main className={styles.main}>
         <h1 className={styles.title}>Esto es un Demo</h1>
+        <Stack spacing={2} direction="row">
+          <Button variant="contained" onClick={handleClick}>
+            Siguiente
+          </Button>
+        </Stack>
       </main>
     </div>
   );
